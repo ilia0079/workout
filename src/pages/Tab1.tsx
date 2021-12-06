@@ -1,14 +1,21 @@
+import { useState } from 'react'
 import { IonContent, IonHeader, IonPage, IonTitle, IonList, IonItem, IonLabel } from '@ionic/react';
 import { useHistory } from 'react-router-dom'
+import cn from 'classnames'
 import { workouts } from '../data'
 
 import styles from './Tab1.module.css';
 
 const Tab1: React.FC = () => {
+  const [category, setCategory] = useState(1);
   const history = useHistory();
 
   const onListItemClick = (workout: any) => {
     history.push(`/workout/${workout.id}`);
+  }
+
+  const updateCategory = (cat: any) => {
+    setCategory(cat)
   }
 
   return (
@@ -18,8 +25,18 @@ const Tab1: React.FC = () => {
           Workout Plans
         </div>
         <div className={styles.headerTabs}>
-          <div className={`${styles.headerTabItem} ${styles.headerTabItemActive}`}>Beginner</div>
-          <div className={styles.headerTabItem}>Expert</div>
+          <div
+            className={cn(styles.headerTabItem, {[`${styles.headerTabItemActive}`]: category == 1})}
+            onClick={() => updateCategory(1)}
+          >
+              Beginner
+            </div>
+          <div
+            className={cn(styles.headerTabItem, {[`${styles.headerTabItemActive}`]: category == 2})}
+            onClick={() => updateCategory(2)}
+          >
+              Expert
+            </div>
         </div>
       </IonHeader>
       <IonContent fullscreen>

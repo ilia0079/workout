@@ -6,7 +6,7 @@
   align-items: flex-end;
   justify-content: flex-start;
 
-  background-size: cover;
+  background-size: 120%;
   background-position: center;
 
   font-family: "Open Sans Condensed";
@@ -15,6 +15,18 @@
   padding: 60px 20px;
 
   color: #fff;
+
+  position: relative;
+}
+
+.header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to top, white 0%, transparent 50%);
 }
 
 .headerTabs {
@@ -25,11 +37,13 @@
   justify-content: center;
 
   width: 90vw;
-  margin: 0 auto;
+  margin: -28px auto 0;
 
   background-color: #fe6826;
 
-  border-radius: 0 0 16px 16px;
+  border-radius: 16px;
+
+  position: relative;
 }
 
 .headerTabItem {

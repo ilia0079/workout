@@ -31,6 +31,9 @@ export const workouts = [{
   exercises: [{
     title: "Warm up",
     duration: 10
+  }, {
+    title: "Bodo",
+    duration: 5
   }]
 }, {
   id: '4',
