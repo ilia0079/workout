@@ -1,0 +1,108 @@
+.header {
+  height: 25vh;
+  max-height: 240px;
+  
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  background-size: cover;
+  background-position: center;
+
+  font-family: "Open Sans Condensed";
+  font-size: 3rem;
+
+  padding: 60px 20px;
+
+  color: #fff;
+}
+
+.headerTabs {
+  display: flex;
+
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  width: 90vw;
+  margin: 0 auto;
+
+  background-color: #fe6826;
+
+  border-radius: 0 0 16px 16px;
+}
+
+.headerTabItem {
+  padding: 16px;
+  margin: 0 8px;
+
+  font-size: 18px;
+  font-weight: 400;
+
+  color: #fff;
+  opacity: 0.6;
+}
+
+.headerTabItemActive {
+  font-weight: 900;
+  opacity: 1;
+}
+
+.list {
+  margin-top: 16px;
+}
+
+.listItem {
+  color: #fff;
+
+  padding: 20px;
+  margin: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listItem:after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,0.2));
+
+  z-index: 2;
+}
+
+.listItem > * {
+  position: relative;
+  z-index: 10;
+}
+
+.listItem button {
+  background-position: 0 10%;
+}
+
+.listItemTitle {
+  position: relative;
+
+  z-index: 10;
+
+  font-weight: 900;
+  font-size: 18px !important;
+}
+
+.listItemSub {
+  font-weight: 300;
+  font-size: 14px;
+
+  margin-top: 2px;
+}

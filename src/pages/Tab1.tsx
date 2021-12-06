@@ -1,22 +1,43 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
+import { IonContent, IonHeader, IonPage, IonTitle, IonList, IonItem, IonLabel } from '@ionic/react';
+import { useHistory } from 'react-router-dom'
+import { workouts } from '../data'
+
+import styles from './Tab1.module.css';
 
 const Tab1: React.FC = () => {
+  const history = useHistory();
+
+  const onListItemClick = (workout: any) => {
+    history.push(`/workout/${workout.id}`);
+  }
+
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1 Title</IonTitle>
-        </IonToolbar>
+        <div className={styles.header} style={{backgroundImage: "url('/assets/images/hero.png')"}}>
+          Workout Plans
+        </div>
+        <div className={styles.headerTabs}>
+          <div className={`${styles.headerTabItem} ${styles.headerTabItemActive}`}>Beginner</div>
+          <div className={styles.headerTabItem}>Expert</div>
+        </div>
       </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+        <div className={styles.list}>
+          {workouts.map(plan => (
+            <div 
+              key={plan.id}
+              className={styles.listItem} 
+              onClick={() => onListItemClick(plan)}
+              style={{ 'background': `no-repeat center/cover url(/assets/images/${plan.id}.jpg)` }}
+            >
+              <div>
+                <IonLabel className={styles.listItemTitle}>{plan.title}</IonLabel>
+                <div className={styles.listItemSub}>{plan.duration} Minutes</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </IonContent>
     </IonPage>
   );
